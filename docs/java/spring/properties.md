@@ -3,6 +3,7 @@
 ## :pushpin: Spring Core
 
 * `spring.application.name` - indicates the name of spring application
+* `logging.level.package` - sets [logging level](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels) of the package
 
 ## :pushpin: Spring Data JPA
 

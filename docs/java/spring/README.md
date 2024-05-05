@@ -26,6 +26,7 @@ Quickly **generate** Spring Boot project: **[start.spring.io](https://start.spri
 * [Annotations](annotations.md)
 * [API](api.md)
 * [Properties](properties.md)
+* [Project Lombok](project-lombok.md)
 * [Thymeleaf](thymeleaf.md)
 
 ## :pushpin: SOLID principles of Object-Oriented Programming
