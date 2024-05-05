@@ -22,22 +22,6 @@ Quickly **generate** Spring Boot project: **[start.spring.io](https://start.spri
 * [Properties](properties.md)
 * [Thymeleaf](thymeleaf.md)
 
-## :pushpin: Spring MVC
-
-:star: **MVC** :star: stands for **Model View Controller** and it is a common design pattern for **GUI** and **Web Applications**.
-
-Controller **handles requests**. It is responsible for **invoking business logic** and **populating Model**.
-
-Model is a **POJO** **(Plain Old Java Object)** class which means that it **is not tied to any Java framework**.
-
-View **handles rendering of the response** which contains Model **to HTML page**.
-
-In Spring MVC there is :star: **Dispatcher Servlet** :star: which:
-* receives request from Client
-* passes the request to Controller and receives Model from Controller
-* passes the Model to View and receives rendered HTML page
-* passes rendered HTML page to Client
-
 ## :pushpin: SOLID principles of Object-Oriented Programming
 
 * :star: **Single Responsibility** :star: - every class should have a single responsibility. Classes should be small
@@ -90,7 +74,7 @@ Termination:
 
 :exclamation: There are over **14** `Aware` interfaces which are used to **access the Spring Framework infrastructure**.
 
-## :pushpin: HTTP
+## :pushpin: HTTP (Hypertext Transfer Protocol)
 
 ### :bell: Versions
 
@@ -123,3 +107,63 @@ Full list: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 * **3xx** - redirection
 * **4xx** - client error
 * **5xx** - server side error
+
+## :pushpin: REST (Representational State Transfer)
+
+**Representation** - typically **JSON** or **XML**
+
+**State Transfer** - typically via **HTTP**
+
+## :pushpin: Marshalling vs Unmarshalling
+
+:star: **Marshalling** :star: - process of converting Java Objects to JSON or XML
+
+:star: **Unmarshalling** :star: - process of converting JSON or XML to Java Objects
+
+## :pushpin: RMM (Richardson Maturity Model)
+
+RMM is used to describe the quality of the RESTful service:
+* **Level 0: Swamp of POX (Plain Old XML)** - uses **one URI** and **one kind of HTTP Verb** (Request Method)
+  * Example: RPC, SOAP, XML-RPC
+* **Level 1: Resources** - uses **multiple URIs** to identify specific resources and **one kind of HTTP Verb**. It breaks large service into **distinct URIs**.
+  * Example: You can GET `/product/1234` and `/product/5678`
+* **Level 2: HTTP Verbs** - uses **multiple URIs** and **multiple kind of HTTP Verb** for desired actions. It introduces HTTP Verbs to implement actions.
+  * Example: You can GET and DELETE `/product/1234` and `/product/5678`
+* **Level 3: Hypermedia** - representation **contains URIs** which may be useful to consumers. It helps developers **explore the resource**. It provides **discoverability**, making the API more **self documenting**
+  * Spring Framework provides an implementation of :star: **HATEOAS (Hypermedia as the Engine of Application State)** :star: - in response objects you get links and information about the actions
+
+## :pushpin: Spring MVC
+
+Spring MVC is **blocking** (because uses Java Servlet API) and **non-reactive**.
+
+:star: **MVC** :star: stands for **Model View Controller** and it is a common design pattern for **GUI** and **Web Applications**.
+
+Controller **handles requests**. It is responsible for **invoking business logic** and **populating Model**.
+
+Model is a **POJO** **(Plain Old Java Object)** class which means that it **is not tied to any Java framework**.
+
+View **handles rendering of the response** which contains Model **to HTML page**.
+
+In Spring MVC there is :star: **Dispatcher Servlet** :star: which:
+* receives request from Client
+* passes the request to Controller and receives Model from Controller
+* passes the Model to View and receives rendered HTML page
+* passes rendered HTML page to Client
+
+### :bell: Spring RestTemplate
+
+RestTemplate is in **maintenance mode** (no new features are planned). It is recommended to **use Spring WebClient for new development**.
+
+## :pushpin: Spring WebFlux
+
+Spring WebFlux is **non-blocking** (because does not use Java Servlet API) and **reactive**.
+
+WebFlux uses project **Reactor** to provide reactive web services. It follows very closely to the configuration model of Spring MVC.
+
+### :bell: Spring WebFlux.fn
+
+Spring WebFlux.fn is a functional programming model used to define endpoints. It is alternative to annotation based configuration.
+
+### :bell: Spring WebClient
+
+Spring WebClient is **reactive** web client. By default, uses **Reactor Netty** - a **non-blocking** HTTP Client library.
