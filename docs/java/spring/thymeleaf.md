@@ -1,5 +1,11 @@
 # :clipboard: THYMELEAF
 
+<p>
+  <a href="https://www.thymeleaf.org/documentation.html" rel="noreferrer">
+      <img src="https://img.shields.io/badge/Documentation-2088E9?logo=quickLook&logoColor=white" alt="Documentation"/>
+  </a>
+</p>
+
 ## :pushpin: Dependency
 
 ```xml
