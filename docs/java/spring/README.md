@@ -139,6 +139,14 @@ RMM is used to describe the quality of the RESTful service:
 * **Level 3: Hypermedia** - representation **contains URIs** which may be useful to consumers. It helps developers **explore the resource**. It provides **discoverability**, making the API more **self documenting**
   * Spring Framework provides an implementation of :star: **HATEOAS (Hypermedia as the Engine of Application State)** :star: - in response objects you get links and information about the actions
 
+## :pushpin: Spring Boot DEV Tools
+
+Spring Boot DEV Tools are **additional set of tools** that can make the application development experience **a little more pleasant**:
+* application **automatically restart** whenever files on the classpath change (in IntelliJ IDEA you can just `Recompile java file` or `Build Project` in `Build` top menu)
+* starts embedded **LiveReload** server that can be used to **trigger a browser refresh** when a resource is changed
+* **disable caching options** by default, so changes can be seen immediately
+* you can configure **global DEV Tools settings** by adding a file named `.spring-boot-devtools.properties` to your `${HOME}` folder. Any properties added to this file will apply to **all** Spring Boot applications on your machine that use DEV Tools
+
 ## :pushpin: Spring MVC
 
 Spring MVC is **blocking** (because uses Java Servlet API) and **non-reactive**.
