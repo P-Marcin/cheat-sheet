@@ -12,9 +12,11 @@
 
 * `org.springframework.stereotype.Component` - indicates that the class is a spring component
 * `org.springframework.stereotype.Controller` - indicates that the class is a controller
-  * `org.springframework.web.bind.annotation.RequestMapping` - maps web requests onto methods in request-handling classes with flexible method signatures.
-* `org.springframework.web.bind.annotation.RestController` - indicates that the class is a controller where `@RequestMapping` methods assume `@ResponseBody` semantics by default
-  * `org.springframework.web.bind.annotation.PathVariable` - indicates that a method parameter should be bound to a URI template variable
+  * `org.springframework.web.bind.annotation.RequestMapping` - maps web requests onto methods in request-handling classes with flexible method signatures
+  * `org.springframework.web.bind.annotation.GetMapping`, `org.springframework.web.bind.annotation.PostMapping`, etc. - equivalent to `@RequestMapping(method = RequestMethod.GET)`, `@RequestMapping(method = RequestMethod.POST)`, etc.
+* `org.springframework.web.bind.annotation.RestController` - equivalent to `@Controller` and `@ResponseBody` (indicates a method return value should be bound to the web response body)
+  * `org.springframework.web.bind.annotation.PathVariable` - indicates a method parameter should be bound to a URI template variable
+  * `org.springframework.web.bind.annotation.RequestBody` - indicates a method parameter should be bound to the body of the web request
 * `org.springframework.stereotype.Service` - indicates that the class is a service
 * `org.springframework.stereotype.Repository` - indicates that the class is a repository
 * `org.springframework.context.annotation.Primary` - indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency

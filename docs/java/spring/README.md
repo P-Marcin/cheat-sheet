@@ -28,6 +28,8 @@ Quickly **generate** Spring Boot project: **[start.spring.io](https://start.spri
 * [Properties](properties.md)
 * [Project Lombok](project-lombok.md)
 * [Thymeleaf](thymeleaf.md)
+* [Mockito](mock-mvc.md)
+* [JsonPath](json-path.md)
 
 ## :pushpin: SOLID principles of Object-Oriented Programming
 
@@ -139,6 +141,10 @@ RMM is used to describe the quality of the RESTful service:
 * **Level 3: Hypermedia** - representation **contains URIs** which may be useful to consumers. It helps developers **explore the resource**. It provides **discoverability**, making the API more **self documenting**
   * Spring Framework provides an implementation of :star: **HATEOAS (Hypermedia as the Engine of Application State)** :star: - in response objects you get links and information about the actions
 
+## :pushpin: RESTful Best Practices
+
+* After **201** (Created) status response return `Location` HTTP Header with URI to the new resource
+
 ## :pushpin: Spring Boot DEV Tools
 
 Spring Boot DEV Tools are **additional set of tools** that can make the application development experience **a little more pleasant**:
@@ -182,3 +188,22 @@ Spring WebFlux.fn is a functional programming model used to define endpoints. It
 ### :bell: Spring WebClient
 
 Spring WebClient is **reactive** web client. By default, uses **Reactor Netty** - a **non-blocking** HTTP Client library.
+
+## :pushpin: Testing
+
+* Unit Tests - designed to test specific sections of code. Ideal coverage is **70-80%**.
+* Integration Tests - designed to test behaviors between objects and parts of the overall system. They can include the Spring Context, database and message brokers.
+* Functional Tests - testing the running application.
+
+Spring MVC Controllers are tricky to test property. They have a high degree of integration with Spring MVC framework. JUnit tests are not sufficient to test the framework interaction.
+
+Spring Mock MVC is a testing environment for the testing of Spring MVC Controllers:
+* Provides mocks of the Servlet runtime environment (simulates the execution of controller as if it was running under Spring with Tomcat)
+* Can be run with (Integration Test) or without (true Unit Test) Spring Context
+
+Spring Boot supports a concept of :star: **Test Splices** :star: which bring up a targeted segment of the auto-configured Spring Boot environment:
+* e.g. just the Database components or just the Web components
+* user defined Spring beans typically are not initialized
+
+:star: **@WebMvcTest** :star: is a Spring Boot test splice which creates a MockMVC enrionment for the controller under a test. Dependencies of it are not included and need to be added to the Spring Context in the test environment.
+
