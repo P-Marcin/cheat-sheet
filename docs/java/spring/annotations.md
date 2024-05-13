@@ -17,12 +17,15 @@
 * `org.springframework.web.bind.annotation.RestController` - equivalent to `@Controller` and `@ResponseBody` (indicates a method return value should be bound to the web response body)
   * `org.springframework.web.bind.annotation.PathVariable` - indicates a method parameter should be bound to a URI template variable
   * `org.springframework.web.bind.annotation.RequestBody` - indicates a method parameter should be bound to the body of the web request
+* `org.springframework.web.bind.annotation.ControllerAdvice` - specialization of `@Component` for classes that declare `@ExceptionHandler`, `@InitBinder` or `@ModelAttribute` methods to be shared across multiple `@Controller` classes
 * `org.springframework.stereotype.Service` - indicates that the class is a service
 * `org.springframework.stereotype.Repository` - indicates that the class is a repository
 * `org.springframework.context.annotation.Primary` - indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency
 * `org.springframework.beans.factory.annotation.Qualifier` - indicates which implementation should be taken when autowiring. Just provide bean name (first letter in lower case) as a value
 * `org.springframework.context.annotation.Profile` - if you have two beans named the same, you can switch between them using this annotation (only bean marked with active Profile will be in Application Context)
   * `@Profile({"EN", "default"})` - you can assign more profiles and also set **default** profile (used when there are no active profiles)
+* `org.springframework.web.bind.annotation.ExceptionHandler` - allows handling exceptions in specific handler classes and/or handler methods
+* `org.springframework.web.bind.annotation.ResponseStatus` - marks a method or exception class with the HTTP status code and reason that should be returned
 
 ## :pushpin: Spring Data JPA
 

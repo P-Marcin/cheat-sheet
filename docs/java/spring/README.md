@@ -144,6 +144,7 @@ RMM is used to describe the quality of the RESTful service:
 ## :pushpin: RESTful Best Practices
 
 * After **201** (Created) status response return `Location` HTTP Header with URI to the new resource
+* Do not return stack trace to client - be careful to not "leak" information to Internet
 
 ## :pushpin: Spring Boot DEV Tools
 
